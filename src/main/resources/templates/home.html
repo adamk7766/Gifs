@@ -45,7 +45,10 @@
     </div>
     <div class="gifs container">
         <div class="row">
-           <h1>Miejsce na wyświetlenie gifów:)</h1>
+           <!--<h1>Miejsce na wyświetlenie gifów:)</h1>-->
+            <p class="col s12 l4" th:each="gif: ${gifs}">
+                <img th:src="${gif.getGifPath()}"/>
+            </p>
         </div>
     </div>
 
