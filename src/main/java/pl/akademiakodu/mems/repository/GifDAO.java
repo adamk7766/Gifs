@@ -12,4 +12,6 @@ import java.util.List;
 public interface GifDAO{
    List<Gif> findAll();
 
+//   List<Gif> searchGifs();
+
 }
