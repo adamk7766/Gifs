@@ -1,9 +1,11 @@
 package pl.akademiakodu.mems.model;
 
+import pl.akademiakodu.mems.repository.GifDAO;
+
 /**
  * Created by TomDom on 2018-03-19.
  */
-public class Gif {
+public class Gif{
 
     private Long id;
 
@@ -35,7 +37,7 @@ public class Gif {
     }
 
     public String getGifPath() {
-        return "gifs/" + name + ".gif";
+        return "gifs/" + getName() + ".gif";
     }
 
     @Override
