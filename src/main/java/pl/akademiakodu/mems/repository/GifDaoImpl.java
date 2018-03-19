@@ -21,6 +21,8 @@ public class GifDaoImpl implements GifDAO{
         return gifs;
     }
 
+
+
     static {
         gifs.add(new Gif(1L, "android-explosion","Heniek" ));
         gifs.add(new Gif(2L, "ben-and-mike","Zenek"));
@@ -32,6 +34,12 @@ public class GifDaoImpl implements GifDAO{
     }
 
 
-
-
+    public Gif findByName(String name) {
+        for ( Gif gif: gifs){
+            if( gif.getName().equals(name)){
+                return gif;
+            }
+        }
+        return null;
+    }
 }

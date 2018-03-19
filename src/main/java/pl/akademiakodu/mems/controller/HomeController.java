@@ -21,7 +21,7 @@ public class HomeController{
 
     @GetMapping("gif/{name}")
     public String edit(@PathVariable String name, ModelMap modelMap) {
-        modelMap.put("gif", gifDaoImpl.findAll());
-        return "gif/gif-details";
+        modelMap.put("gif", gifDaoImpl.findByName(name));
+        return "gif-details";
     }
 }
