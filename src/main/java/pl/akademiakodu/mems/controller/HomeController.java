@@ -7,13 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import pl.akademiakodu.mems.model.Gif;
 import pl.akademiakodu.mems.repository.GifDAO;
-import pl.akademiakodu.mems.repository.GifDaoImpl;
+
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class HomeController{
+public class HomeController {
 
 
     @Autowired
@@ -30,15 +32,29 @@ public class HomeController{
         modelMap.put("gif", gifDAO.findByName(name));
         return "gif-details";
     }
+
     @GetMapping("/favorites")
-    public String favorites(ModelMap modelMap){
+    public String favorites(ModelMap modelMap) {
         List<Gif> favorites = new ArrayList<>();
-        for(Gif gifs: gifDAO.findAll()){
-            if(gifs.isFavorite()){
+        for (Gif gifs : gifDAO.findAll()) {
+            if (gifs.isFavorite()) {
                 favorites.add(gifs);
             }
         }
-        modelMap.put("gifs",favorites);
-        return"favorites";
+        modelMap.put("gifs", favorites);
+        return "favorites";
+    }
+
+
+    @GetMapping("/search")
+    public String search(@RequestParam String q, ModelMap modelMap) {
+        List<Gif> gifList = new ArrayList<>();
+        gifList.add(gifDAO.searchByName(q));
+        if (gifList.get(0) == null) {
+            modelMap.put("message", "Nie znaleziono memu");
+        } else {
+            modelMap.put("gifs", gifList);
+        }
+        return "home";
     }
 }

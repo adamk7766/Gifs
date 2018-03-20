@@ -28,6 +28,7 @@ public class GifDaoImpl implements GifDAO{
 
     }
 
+
     public GifDaoImpl() {}
 
     @Override
@@ -42,14 +43,18 @@ public class GifDaoImpl implements GifDAO{
         return gifs;
     }
 
-
-
-
-
-
     public Gif findByName(String name) {
         for ( Gif gif: gifs){
             if( gif.getName().equals(name)){
+                return gif;
+            }
+        }
+        return null;
+    }
+
+    public Gif searchByName(String q) {
+        for ( Gif gif: gifs){
+            if( gif.getName().contains(q)){
                 return gif;
             }
         }
