@@ -16,14 +16,9 @@ public class GifDaoImpl implements GifDAO{
 
     static List<Gif> gifs = new ArrayList<>();
 
-    @Override
-    public List<Gif> findAll() {
-        return gifs;
-    }
-
-
-
     static {
+
+
         gifs.add(new Gif(1L, "android-explosion","Heniek" ));
         gifs.add(new Gif(2L, "ben-and-mike","Zenek"));
         gifs.add(new Gif(3L, "book-dominos", "Tadek"));
@@ -32,6 +27,24 @@ public class GifDaoImpl implements GifDAO{
         gifs.add(new Gif(6L, "infinite-andrew","Krycha"));
 
     }
+
+    public GifDaoImpl() {}
+
+    @Override
+    public List<Gif> findAll(){
+        List<Gif> gifs = new ArrayList<>();
+        gifs.add(new Gif(1L,"android-explosion",1, true));
+        gifs.add(new Gif(2L,"ben-and-mike",2, false));
+        gifs.add(new Gif(3L,"book-dominos",3, false));
+        gifs.add(new Gif(4L,"compiler-bot",1, true));
+        gifs.add(new Gif(5L,"cowboy-coder",2, true));
+        gifs.add(new Gif(6L,"infinite-andrew",3, false));
+        return gifs;
+    }
+
+
+
+
 
 
     public Gif findByName(String name) {
