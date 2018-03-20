@@ -42,4 +42,13 @@ public class GifDaoImpl implements GifDAO{
         }
         return null;
     }
+
+    public Gif searchByName(String q) {
+        for ( Gif gif: gifs){
+            if( gif.getName().contains(q)){
+                return gif;
+            }
+        }
+        return null;
+    }
 }

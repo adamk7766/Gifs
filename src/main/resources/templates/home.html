@@ -34,10 +34,10 @@
     <div class="search-bar container">
         <div class="row">
             <div class="col s12">
-                <form action="#" method="get">
+                <form action="/search" method="get">
                     <div class="input-field">
                         <input name="q" type="search" placeholder="Wyszukiwanie..." required="required" autocomplete="off"/>
-                        <i class="material-icons">search</i>
+                        <button type="submit" class="material-icons">search</button>
                     </div>
                 </form>
             </div>
@@ -46,10 +46,12 @@
     <div class="gifs container">
         <div class="row">
            <!--<h1>Miejsce na wyświetlenie gifów:)</h1>-->
-            <p class="col s12 l4" th:each="gif: ${gifs}">
+            <p th:if="${message}" th:text="${message}"/>  <!--z ifa z controllera, jeśl wyjdzie null to wyświetli wiadomość-->
+            <!--jeśli nie będzie null czyli zodzi się z metodą contains to pokaże zgodne gify: -->
+            <a th:href="@{'/gif/'+${gif.name}}" class="col s12 l4" th:each="gif: ${gifs}">
                 <img th:src="${gif.getGifPath()}"/>
-                <a th:text="${gif.getUserName()}"></a>
-            </p>
+                <div th:text="${gif.getUserName()}"></div>
+            </a>
 
         </div>
 
