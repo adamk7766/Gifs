@@ -37,7 +37,8 @@ public class HomeController{
             if(gifs.isFavorite()){
                 favorites.add(gifs);
             }
-        }   modelMap.put("gifs",favorites);
+        }
+        modelMap.put("gifs",favorites);
         return"favorites";
     }
 }
