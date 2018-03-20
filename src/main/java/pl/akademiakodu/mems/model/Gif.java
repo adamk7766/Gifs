@@ -10,6 +10,7 @@ public class Gif{
     private Long id;
 
     private String name;
+    private String userName;
 
     private int idCategory;
 
@@ -21,15 +22,26 @@ public class Gif{
         return idCategory;
     }
 
+
     public void setIdCategory(int idCategory) {
         this.idCategory = idCategory;
     }
 
     public Gif(){}
 
-    public Gif(Long id, String name) {
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Gif(Long id, String name, String userName) {
         this.id = id;
         this.name = name;
+        this.userName = userName;
     }
 
     public Gif(Long id, String name, int idCategory) {
@@ -56,6 +68,10 @@ public class Gif{
 
     @Override
     public String toString() {
-        return getName();
+        return "Gif{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", userName='" + userName + '\'' +
+                '}';
     }
 }
