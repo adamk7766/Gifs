@@ -33,7 +33,6 @@ public class GifDaoImpl implements GifDAO{
 
     }
 
-
     public Gif findByName(String name) {
         for ( Gif gif: gifs){
             if( gif.getName().equals(name)){

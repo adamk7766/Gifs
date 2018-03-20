@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class HomeController{
+public class HomeController {
 
 
     @Autowired
@@ -33,12 +33,11 @@ public class HomeController{
 
     @GetMapping("/search")
     public String search(@RequestParam String q, ModelMap modelMap) {
-        List<Gif> gifList =new ArrayList<>();
+        List<Gif> gifList = new ArrayList<>();
         gifList.add(gifDaoImpl.searchByName(q));
-        if( gifList.get(0) ==null){
-            modelMap.put("message","Nie znaleziono memu");
-        }
-        else {
+        if (gifList.get(0) == null) {
+            modelMap.put("message", "Nie znaleziono memu");
+        } else {
             modelMap.put("gifs", gifList);
         }
         return "home";
