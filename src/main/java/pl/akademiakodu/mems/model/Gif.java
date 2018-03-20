@@ -12,9 +12,23 @@ public class Gif{
     private String name;
     private String userName;
 
-    public Gif() {
+    private int idCategory;
 
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public int getIdCategory() {
+        return idCategory;
+    }
+
+
+    public void setIdCategory(int idCategory) {
+        this.idCategory = idCategory;
+    }
+
+    public Gif(){}
+
 
     public String getUserName() {
         return userName;
@@ -28,7 +42,12 @@ public class Gif{
         this.id = id;
         this.name = name;
         this.userName = userName;
+    }
 
+    public Gif(Long id, String name, int idCategory) {
+        this.id = id;
+        this.name = name;
+        this.idCategory = idCategory;
     }
 
     public Long getId() {
@@ -41,10 +60,6 @@ public class Gif{
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getGifPath() {
