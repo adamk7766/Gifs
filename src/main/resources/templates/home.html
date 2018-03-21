@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -47,10 +47,12 @@
         <div class="row">
            <!--<h1>Miejsce na wyświetlenie gifów:)</h1>-->
             <p th:if="${message}" th:text="${message}"/>  <!--z ifa z controllera, jeśl wyjdzie null to wyświetli wiadomość-->
-            <!--jeśli nie będzie null czyli zodzi się z metodą contains to pokaże zgodne gify: -->
+            <!--jeśli nie będzie null czyli zgodzi się z metodą contains to pokaże zgodne gify: -->
             <a th:href="@{'/gif/'+${gif.name}}" class="col s12 l4" th:each="gif: ${gifs}">
+
                 <img th:src="${gif.getGifPath()}"/>
-                <div th:text="${gif.getUserName()}"></div>
+
+                <p th:text="${gif.getUserName()}"></p>
             </a>
 
         </div>

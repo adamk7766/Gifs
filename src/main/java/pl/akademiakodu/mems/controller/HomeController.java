@@ -48,13 +48,22 @@ public class HomeController {
 
     @GetMapping("/search")
     public String search(@RequestParam String q, ModelMap modelMap) {
-        List<Gif> gifList = new ArrayList<>();
-        gifList.add(gifDAO.searchByName(q));
-        if (gifList.get(0) == null) {
+        List<Gif> gifList = gifDAO.searchByName(q);
+        if (gifList.isEmpty()) {
             modelMap.put("message", "Nie znaleziono memu");
         } else {
             modelMap.put("gifs", gifList);
+            System.out.println(gifDAO.toString());
+            System.out.println(gifList);
         }
         return "home";
     }
+
+    private String toString(GifDAO gifDAO) {
+        return "HomeController{" +
+                "gifDAO=" + gifDAO +
+                '}';
+    }
+
+
 }

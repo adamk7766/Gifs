@@ -10,9 +10,12 @@ import java.util.List;
  */
 
 public interface GifDAO{
-   List<Gif> findAll();
+    List<Gif> findAll();
     Gif findByName(String name);
-    Gif searchByName(String q);
+    List<Gif> searchByName(String q);
+    List<Gif> findById(Long id);
+    String toString();
+
 
 
 }

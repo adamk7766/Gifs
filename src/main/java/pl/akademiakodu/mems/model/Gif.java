@@ -13,7 +13,7 @@ public class Gif{
 
     private String userName;
 
-    private int idCategory;
+    private Long idCategory;
 
     private boolean isFavorite;
 
@@ -30,12 +30,12 @@ public class Gif{
         this.name = name;
     }
 
-    public int getIdCategory() {
+    public Long getIdCategory() {
         return idCategory;
     }
 
 
-    public void setIdCategory(int idCategory) {
+    public void setIdCategory(Long idCategory) {
         this.idCategory = idCategory;
     }
 
@@ -50,20 +50,12 @@ public class Gif{
         this.userName = userName;
     }
 
-    public Gif(Long id, String name, String userName) {
+
+    public Gif(Long id, String name, String userName, Long idCategory, boolean isFavorite) {
         this.id = id;
         this.name = name;
         this.userName = userName;
-    }
-
-    public Gif(Long id, String name, int idCategory) {
-        this.id = id;
-        this.name = name;
         this.idCategory = idCategory;
-    }
-
-    public Gif(Long id, String name, int idCategory, boolean isFavorite){
-        this(id,name,idCategory);
         this.isFavorite = isFavorite;
     }
 
@@ -80,8 +72,10 @@ public class Gif{
     }
 
     public String getGifPath() {
-        return "gifs/" + getName() + ".gif";
+        return "/gifs/" + getName() + ".gif";
     }
+
+
 
     @Override
     public String toString() {
@@ -89,6 +83,8 @@ public class Gif{
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", userName='" + userName + '\'' +
+                ", idCategory=" + idCategory +
+                ", isFavorite=" + isFavorite +
                 '}';
     }
 }

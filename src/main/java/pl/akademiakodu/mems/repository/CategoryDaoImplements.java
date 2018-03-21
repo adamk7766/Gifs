@@ -9,17 +9,47 @@ import java.util.List;
 @Component
 public class CategoryDaoImplements implements CategoryDao{
 
+
+    static List<Category> categoryById = new ArrayList<>();
+    static List<Category> categories = new ArrayList<>();
+
     @Override
     public List<Category> findAll() {
-        List<Category> categoryList = new ArrayList<>();
-        categoryList.add(new Category(1, "Android"));
-        categoryList.add(new Category(2, "Funny"));
-        categoryList.add(new Category(3, "Programming"));
-        return categoryList;
+
+
+        return categories;
+    }
+
+    static {
+        categories.add(new Category(1L, "Android"));
+        categories.add(new Category(2L, "Funny"));
+        categories.add(new Category(3L, "Programming"));
+
     }
 
 
     public CategoryDaoImplements(){
+    }
+
+    @Override
+    public List<Category> findById(Long id) {
+        for ( Category category: categories){
+            if( category.getId() == id ){
+                categoryById.add(category);
+                return categoryById;
+            }
+        }
+        return null;
+    }
+    @Override
+    public Category categoryById(Long id) {
+        for ( Category category: categories){
+            if( category.getId() == id ){
+
+                return category;
+            }
+        }
+        return null;
     }
 
 }

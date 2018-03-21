@@ -1,5 +1,6 @@
 package pl.akademiakodu.mems.repository;
 
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import org.apache.catalina.LifecycleState;
 import org.springframework.stereotype.Component;
 import pl.akademiakodu.mems.model.Gif;
@@ -15,16 +16,18 @@ import java.util.List;
 public class GifDaoImpl implements GifDAO{
 
     static List<Gif> gifs = new ArrayList<>();
+    static List<Gif> gifsByID = new ArrayList<>();
+    static List<Gif> gifsByCategory = new ArrayList<>();
 
     static {
 
 
-        gifs.add(new Gif(1L, "android-explosion","Heniek" ));
-        gifs.add(new Gif(2L, "ben-and-mike","Zenek"));
-        gifs.add(new Gif(3L, "book-dominos", "Tadek"));
-        gifs.add(new Gif(4L, "compiler-bot", "Władek"));
-        gifs.add(new Gif(5L, "cowboy-coder","Ziuta"));
-        gifs.add(new Gif(6L, "infinite-andrew","Krycha"));
+        gifs.add(new Gif(1L, "android-explosion","Heniek",1L, true ));
+        gifs.add(new Gif(2L, "ben-and-mike","Zenek",2L, false));
+        gifs.add(new Gif(3L, "book-dominos", "Tadek",3L, false));
+        gifs.add(new Gif(4L, "compiler-bot", "Władek",1L, true));
+        gifs.add(new Gif(5L, "cowboy-coder","Ziuta",2L, true));
+        gifs.add(new Gif(6L, "infinite-andrew","Krycha",3L, false));
 
     }
 
@@ -33,13 +36,6 @@ public class GifDaoImpl implements GifDAO{
 
     @Override
     public List<Gif> findAll(){
-        List<Gif> gifs = new ArrayList<>();
-        gifs.add(new Gif(1L,"android-explosion",1, true));
-        gifs.add(new Gif(2L,"ben-and-mike",2, false));
-        gifs.add(new Gif(3L,"book-dominos",3, false));
-        gifs.add(new Gif(4L,"compiler-bot",1, true));
-        gifs.add(new Gif(5L,"cowboy-coder",2, true));
-        gifs.add(new Gif(6L,"infinite-andrew",3, false));
         return gifs;
     }
 
@@ -52,12 +48,27 @@ public class GifDaoImpl implements GifDAO{
         return null;
     }
 
-    public Gif searchByName(String q) {
+    public List<Gif> searchByName(String q) {
+        List<Gif> returnedGifs =new ArrayList<>();
         for ( Gif gif: gifs){
             if( gif.getName().contains(q)){
-                return gif;
+                returnedGifs.add(gif);
+            }
+        }
+        return returnedGifs;
+    }
+
+
+    public List<Gif> findById(Long id) {
+        for ( Gif gif: gifs){
+            if( gif.getId() == id){
+                gifsByID.add(gif);
+                return gifsByID;
             }
         }
         return null;
     }
+
+
+
 }
