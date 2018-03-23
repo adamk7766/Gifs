@@ -1654,13 +1654,17 @@ html {
   -ms-text-size-adjust: 100%;
   /* 2 */
   -webkit-text-size-adjust: 100%;
-  /* 2 */ }
+  /* 2 */
+    height: 100%
+}
 
 /**
  * Remove default margin.
  */
 body {
-  margin: 0; }
+  margin: 0;
+  height: 100%
+}
 
 /* HTML5 display definitions
    ========================================================================== */
@@ -1966,7 +1970,9 @@ td, th {
   padding: 0; }
 
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+    height: 100%
+}
 
 *, *:before, *:after {
   box-sizing: inherit; }
@@ -8196,3 +8202,22 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 @media (min-height: 40.125em) {
   .picker--time .picker__box {
     margin-bottom: 5em; } }
+
+.page-footer{
+  padding: 20px;
+  background-color: #896bb3;
+  /*position: absolute;*/
+  bottom: 0;
+  width: 100%;
+
+  text-align: center;
+}
+
+.wrapper{
+  position: relative;
+  min-height: 100%;
+}
+
+
+
+

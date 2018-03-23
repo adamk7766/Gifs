@@ -8,11 +8,12 @@
 
     <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" th:href="@{/app.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/app.css}" />
 
     <title>giflib | Home</title>
 </head>
 <body>
+<div class="wrapper">
     <div class="navbar-fixed">
         <nav>
             <div class="container">
@@ -63,6 +64,9 @@
 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
 <script th:src="@{/app.js}"></script>
 
+</div>
 
+<div id="footer" class="alt" th:include="fragments/fragments :: footer">
+</div>
 </body>
 </html>
