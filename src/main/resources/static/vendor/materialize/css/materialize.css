@@ -1663,7 +1663,7 @@ html {
  */
 body {
   margin: 0;
-  height: 100%
+
 }
 
 /* HTML5 display definitions
@@ -1971,7 +1971,7 @@ td, th {
 
 html {
   box-sizing: border-box;
-    height: 100%
+
 }
 
 *, *:before, *:after {
